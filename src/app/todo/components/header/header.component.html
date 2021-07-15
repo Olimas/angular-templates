@@ -1,0 +1,6 @@
+<header>
+  <h2>Task Tracker</h2>
+  <p>Double click on task for add reminder</p>
+  <app-button color="{{showAddTask ? 'red' : 'green'}}" text="{{showAddTask ? 'Close' : 'Add'}}"
+              (btnClick)="toggleAddTask()"></app-button>
+</header>
