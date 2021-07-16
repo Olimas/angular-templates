@@ -1,4 +1,16 @@
 <div class="container">
-  <todo-app></todo-app>
-  <cards-app></cards-app>
+  <div class="todo-app container">
+    <h2>TODO</h2>
+    <hr>
+    <div *ngIf="hasRoute('/')">
+      <app-header></app-header>
+      <app-tasks></app-tasks>
+
+
+    </div>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+
+  </div>
+
 </div>

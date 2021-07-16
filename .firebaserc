@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "angular-fdf5c"
+  },
+  "targets": {
+    "angular-fdf5c": {
+      "hosting": {
+        "angular-start": [
+          "angular-fdf5c"
+        ]
+      }
+    }
+  }
+}

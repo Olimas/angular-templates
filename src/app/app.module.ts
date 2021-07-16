@@ -6,18 +6,21 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {HttpClientModule} from "@angular/common/http";
 import {RouterModule, Routes} from "@angular/router";
 
+// Firebase
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
 import {AppComponent} from './app.component';
-import {CardComponent} from './cards/card/card.component';
-import {FormComponent} from './cards/form/form.component';
-import {BasicsComponent} from "./cards/cards.component";
-import { TodoComponent } from './todo/todo.component';
-import { HeaderComponent } from './todo/components/header/header.component';
-import { ButtonComponent } from './todo/components/button/button.component';
-import { TasksComponent } from './todo/components/tasks/tasks.component';
-import { TaskItemComponent } from './todo/components/task-item/task-item.component';
-import { AddTaskComponent } from './todo/components/add-task/add-task.component';
-import { AboutComponent } from './todo/components/about/about.component';
-import { FooterComponent } from './todo/components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { ButtonComponent } from './components/button/button.component';
+import { TasksComponent } from './components/tasks/tasks.component';
+import { TaskItemComponent } from './components/task-item/task-item.component';
+import { AddTaskComponent } from './components/add-task/add-task.component';
+import { AboutComponent } from './components/about/about.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 const appRoutes: Routes = [
   // {path: '', component: TasksComponent},
@@ -27,24 +30,24 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    CardComponent,
-    FormComponent,
-    BasicsComponent,
-    TodoComponent,
     HeaderComponent,
     ButtonComponent,
     TasksComponent,
     TaskItemComponent,
     AddTaskComponent,
     AboutComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     FontAwesomeModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes, {enableTracing: true})
+    RouterModule.forRoot(appRoutes, {enableTracing: true}),
+    AngularFireModule.initializeApp(environment.firebaseConfig, 'mytestapp'),
+    AngularFirestoreModule, // Only required for database features
+    AngularFireAuthModule, // Only required for auth features,
+    AngularFireStorageModule // Only required for storage features
   ],
   providers: [{provide: LOCALE_ID, useValue: 'ru'}],
   bootstrap: [AppComponent],
